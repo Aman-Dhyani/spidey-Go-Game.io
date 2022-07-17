@@ -12,6 +12,8 @@ let spaceship = document.querySelector("#spaceship");
 let sword = document.querySelector("#sword")
 let portal = document.querySelector("#teleport");
 let play = document.querySelector("#play");
+let btnLeft = document.querySelector("#btnLeft");
+let btnRight = document.querySelector("#btnRight");
 
 // ----------- music ------------------------------------
 let theme = new Audio("Music/theme.mp3");
@@ -29,21 +31,29 @@ let thanosaudio = new Audio("Music/thanos.m4a");
 
 // -------------- spiderMan controls -----------------------
 addEventListener("keydown", (e) => {
-    if (e.key == "w") {
-        spiderMan.classList.add("jump");
-        jumpSound.play();
-        spiderweb.play();
-    }
+    if (e.key == "w") jump();
+    if (e.key == "s") slide();
+})
 
-    if (e.key == "s") {
-        spiderMan.classList.add("slide");
-    }
+// -------------- Jump function ----------------------
+function jump() {
+    spiderMan.classList.add("jump");
+    jumpSound.play();
+    spiderweb.play();
 
     setTimeout(() => {
         spiderMan.classList.remove("jump");
+    }, 500);
+}
+// -------------- slide function ----------------------
+function slide() {
+    spiderMan.classList.add("slide");
+
+    setTimeout(() => {
         spiderMan.classList.remove("slide");
     }, 500);
-})
+}
+
 
 // --------------------------- mainFunction ----------------------------------
 function mainFunction() {
@@ -69,7 +79,7 @@ function mainFunction() {
         let clouds = document.createElement("div");
         game.appendChild(clouds);
         clouds.classList.add("cloud");
-        clouds.style.top = Math.floor(Math.random() * 300) + "px";
+        clouds.style.top = Math.floor(Math.random() * 200) + "px";
         setInterval(() => {
             game.removeChild(clouds);
         }, 4000);
