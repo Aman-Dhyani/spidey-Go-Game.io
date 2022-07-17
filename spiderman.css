@@ -30,6 +30,7 @@ body {
     padding: 5%;
     z-index: 5;
     cursor: pointer;
+    z-index: 5;
 }
 
 #spider {
@@ -502,4 +503,24 @@ body {
 
 .hide {
     display: none;
+}
+
+/*----- For Small Resolution Devices ------*/
+.btns {
+    height: 80%;
+    width: 50%;
+    position: absolute;
+    bottom: 3%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#btnLeft {
+    left: 0%;
+}
+
+#btnRight {
+    left: 50%;
 }
